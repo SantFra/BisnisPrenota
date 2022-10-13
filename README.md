@@ -71,3 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Credits
 Stefano - Franz - little tony
+
+
+
+
+Ho modificato il readme, per modificarlo dovrai usare il merge
