@@ -1,6 +1,6 @@
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { TextInput, PasswordInput, Paper, Title, Anchor, Group, Button, Container } from '@mantine/core';
-import {useForm } from "@mantine/form"
+import { useForm } from "@mantine/form"
 
 
     export default function AuthenticationForm(props) {

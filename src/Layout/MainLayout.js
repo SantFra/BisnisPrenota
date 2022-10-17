@@ -119,7 +119,11 @@ function MainLayout () {
 
                     </Container>
                 </Header>
+
                 <Outlet/>
+
+                {/* qui footer */}
+
             </MantineProvider>
         </ColorSchemeProvider>
     )
