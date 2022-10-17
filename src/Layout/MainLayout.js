@@ -124,7 +124,7 @@ function MainLayout () {
 
                 {/* qui footer */}
             <Footer>
-
+                <h1>Hello</h1>
             </Footer>
             </MantineProvider>
         </ColorSchemeProvider>
