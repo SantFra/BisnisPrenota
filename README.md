@@ -69,5 +69,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+# Link utili: 
+  - [gitmoji](https://kapeli.com/cheat_sheets/Gitmoji.docset/Contents/Resources/Documents/index) per trello;
+
 # Credits
 Stefano - Franz - little tony
