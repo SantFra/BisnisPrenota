@@ -1,4 +1,4 @@
-import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, MantineProvider, Image } from "@mantine/core";
+import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, Footer, MantineProvider, Image } from "@mantine/core";
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import LightDarkButton from "../Components/LightDarkButton";
@@ -123,7 +123,9 @@ function MainLayout () {
                 <Outlet/>
 
                 {/* qui footer */}
+            <Footer>
 
+            </Footer>
             </MantineProvider>
         </ColorSchemeProvider>
     )
