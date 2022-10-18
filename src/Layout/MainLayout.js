@@ -1,4 +1,5 @@
-import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, Footer, MantineProvider, Image } from "@mantine/core";
+import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, Footer, MantineProvider } from "@mantine/core";
+import { IconBluetooth } from "@tabler/icons";
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import LightDarkButton from "../Components/LightDarkButton";
@@ -62,28 +63,48 @@ const useStyles = createStyles((theme) => ({
         color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
       },
     },
+
+    footer: {
+      position: "absolute",
+      width: "100%",
+      height: "5%",
+      bottom: "0",
+      right: "2%",
+    },
+
+    
+
   }));
 
 function MainLayout () {
 
     //--- lista dei link 
-    const links = [
+    const linksHeader = [
         {link:"/", label:"Home"},
         {link:"/app", label:"App"},
     ]
 
+    const linksFooter =[
+      {link:"/AboutUs", label:"Credits"},
+      {link:"/PatchNotes", label:"Patch notes"},
+    ]
+
+
     const { classes, cx } = useStyles();
 
+    //--- bottone light / dark theme
     const [colorScheme, setColorScheme] = useState ('light');
+
     const toggleColorScheme = (value) =>
         setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
+    //--- Focus bottoni su pagina corrente
     const [opened, setOpened] = useState(false);
     const title = opened ? 'Close navigation' : 'Open navigation';
-    const [active, setActive] = useState(links[0].link);
+    const [active, setActive] = useState(linksHeader[0].link);
 
-    //--- Crea gli ite m del menu
-    const items = links.map((link) => (
+    //--- Crea gli item del menu
+    const itemsHeader = linksHeader.map((link) => (
         <Link
             key={link.label}
             to={link.link}
@@ -95,6 +116,21 @@ function MainLayout () {
             {link.label}
         </Link>
       ));
+
+
+      const itemsFooter = linksFooter.map((link) => (
+        <Link
+            key={link.label}
+            to={link.link}
+            className={cx(classes.link)}
+            onClick={() => {
+                setActive(link.link);
+            }}
+        >
+            {link.label}
+        </Link>
+      ));
+      
 
     return(
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme} >
@@ -109,8 +145,8 @@ function MainLayout () {
                             size="sm"
                             className={classes.burger}
                         />
-                        <Group className={classes.links} spacing={5}>
-                            {items}
+                        <Group className={classes.linksHeader} spacing={5}>
+                            {itemsHeader}
                         </Group>
                         
                         {/* Logo  */}
@@ -120,12 +156,24 @@ function MainLayout () {
                     </Container>
                 </Header>
 
+                <div className={classes.footer}>
+                  <Footer>
+                    <Group 
+                      className={classes.linksFooter} 
+                      spacing={15} 
+                      flexDirection="center"
+                      padding= "${theme.spacing.md}px ${theme.spacing.md}px"
+                      position="right"
+                      marginTop= "120"
+                      fullWidth
+                      noWrap
+                    >
+                      {itemsFooter}
+                    </Group>
+                  </Footer>
+                </div>
                 <Outlet/>
-
-                {/* qui footer */}
-            <Footer>
-                <h1>Hello</h1>
-            </Footer>
+                
             </MantineProvider>
         </ColorSchemeProvider>
     )
