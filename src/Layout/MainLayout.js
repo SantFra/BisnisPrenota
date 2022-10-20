@@ -1,4 +1,4 @@
-import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, Footer, MantineProvider } from "@mantine/core";
+import { Burger, ColorSchemeProvider, Container, createStyles, Group, Header, Footer, MantineProvider, Center } from "@mantine/core";
 import { IconBluetooth } from "@tabler/icons";
 import { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
@@ -64,12 +64,21 @@ const useStyles = createStyles((theme) => ({
       },
     },
 
+    mainBody: {
+      textAlign: "center",
+      justifyContent: "center",
+      height: 800,
+      width: 800,
+      //backgroundColor: "black",
+    },
+
     footer: {
-      position: "absolute",
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      height: 100,
+      position: "relative",
       width: "100%",
-      height: "5%",
-      bottom: "0",
-      right: "2%",
     },
 
     
@@ -156,7 +165,13 @@ function MainLayout () {
                     </Container>
                 </Header>
 
+                <div className={classes.mainBody}>
+                  <span>prova footer</span>
+                </div>
                 <div className={classes.footer}>
+
+
+
                   <Footer>
                     <Group 
                       className={classes.linksFooter} 
