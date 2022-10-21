@@ -11,7 +11,7 @@ export default function Router () {
             element: <MainLayout/>,
             children: [
                 {path: 'app', element: <App/> },
-                {path: 'about', element: <AboutUs/> }
+                {path: 'about', element: <AboutUs/> },
             ]
 
         },
