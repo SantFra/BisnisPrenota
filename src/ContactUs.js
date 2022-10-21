@@ -1,17 +1,7 @@
-import { Container, TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/core';
-import { createStyles } from "@mantine/core";
+import { Container, Paper, TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
-const useStyles = createStyles((theme) => ({
-
-  form: {
-    width: "400",
-  },
-
-}));
-
   export function ContactUs() {
-    const { classes } = useStyles();
 
     const form = useForm({
       initialValues: {
@@ -29,9 +19,9 @@ const useStyles = createStyles((theme) => ({
     });
 
     return (
-      <Container>
-
-        <form className={classes.form} onSubmit={form.onSubmit(() => {})}>
+      <Container size={720} my={200}>
+      <Paper radius="md" p="md" withBorder>
+        <form onSubmit={form.onSubmit(() => {})}>
           <Title
             order={2}
             size="h1"
@@ -39,7 +29,7 @@ const useStyles = createStyles((theme) => ({
             weight={900}
             align="center"
           >
-            Get in touch
+            Send us a message!
           </Title>
 
           <SimpleGrid cols={2} mt="xl" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
@@ -77,6 +67,7 @@ const useStyles = createStyles((theme) => ({
             </Button>
           </Group>
         </form>
+        </Paper>
       </Container>
     );
   }

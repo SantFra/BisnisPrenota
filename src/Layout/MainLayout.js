@@ -1,4 +1,4 @@
-import {  Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header } from "@mantine/core";
+import { Button, Anchor, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import LightDarkButton from "../Components/LightDarkButton";
@@ -80,6 +80,11 @@ const useStyles = createStyles((theme) => ({
       }`,
     },
 
+    logInButton: {
+      position: "fixed",
+      alignItems: "right",
+    }
+
 
   }));
 
@@ -87,15 +92,14 @@ function MainLayout () {
 
     //--- lista dei link 
     const linksHeader = [
-        {link:"/", label:"Home"},
-        {link:"/app", label:"App"},
+        {link: "/", label: "Home"},
+        {link: "/app", label: "App"},
     ]
 
-    const linksFooter =[
-      {link:"/AboutUs", label:"Credits"},
-      {link:"/ContactUs", label:"Contact us"},
+    const linksFooter = [
+      {link: "/AboutUs", label: "Credits"},
+      {link: "/ContactUs", label: "Contact us"},
     ]
-
 
     const { classes, cx } = useStyles();
 
@@ -136,13 +140,14 @@ function MainLayout () {
             {link.label}
         </Link>
       ));
-      
+
 
     return(
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme} >
             <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS >
                 <Header>
                     <Container className={classes.inner}>
+                      
                         {/* <Burger opened={opened} onClick={toggle} size="sm" className={classes.burger} /> */}
                         <Burger
                             opened={opened}
@@ -151,14 +156,12 @@ function MainLayout () {
                             size="sm"
                             className={classes.burger}
                         />
-                        <Group className={classes.linksHeader} spacing={5}>
-                            {itemsHeader}
-                        </Group>
+                        <Group className={classes.linksHeader} spacing={5}>{itemsHeader}</Group>
                         
                         {/* Logo  */}
                         
                         <LightDarkButton/>
-
+                        <Button tyoe="submit">Log in</Button>
                     </Container>
                 </Header>
 
