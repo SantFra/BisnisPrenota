@@ -1,12 +1,9 @@
 import './App.css';
+import './Layout/MainLayout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <span>prova app con footer</span>
-      </header>
-    </div>
+    <div> prova footer</div>
   );
 }
 

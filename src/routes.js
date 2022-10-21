@@ -1,8 +1,9 @@
 import { useRoutes } from "react-router-dom";
-import App from "./App"
-import MainLayout from "./Layout/MainLayout"
-import Login from "./Page/Login"
-import AboutUs from "./Page/AboutUs"
+import App from "./App";
+import MainLayout from "./Layout/MainLayout";
+import Login from "./Page/Login";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
 
 export default function Router () {
     return useRoutes([
@@ -11,7 +12,8 @@ export default function Router () {
             element: <MainLayout/>,
             children: [
                 {path: 'app', element: <App/> },
-                {path: 'about', element: <AboutUs/> },
+                {path: 'AboutUs', element: <AboutUs/> },
+                {path: 'ContactUs', element: <ContactUs/>},
             ]
 
         },

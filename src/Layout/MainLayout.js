@@ -1,5 +1,4 @@
-import {  Burger, ColorSchemeProvider, Container, createStyles, Group, Header, MantineProvider } from "@mantine/core";
-
+import {  Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import LightDarkButton from "../Components/LightDarkButton";
@@ -66,7 +65,10 @@ const useStyles = createStyles((theme) => ({
     },
 
     footer: {
-      marginTop: 60,
+      position: "absolute",
+      left: 0,
+      bottom: 0,
+      right: 0,
       
       [theme.fn.smallerThan('sm')]: {
         width: 'auto',
@@ -91,7 +93,7 @@ function MainLayout () {
 
     const linksFooter =[
       {link:"/AboutUs", label:"Credits"},
-      {link:"/PatchNotes", label:"Patch notes"},
+      {link:"/ContactUs", label:"Contact us"},
     ]
 
 
