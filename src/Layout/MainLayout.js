@@ -2,6 +2,7 @@ import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, Ma
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { IconLogin } from '@tabler/icons';
 
 import LightDarkButton from "../Components/LightDarkButton";
 
@@ -96,8 +97,9 @@ function MainLayout () {
 
     //--- lista dei link 
     const linksHeader = [
-        {link: "/", label: "Home"},
-        {link: "/app", label: "App"},
+        {link: "/Home", label: "Home"},
+        {link: "/GridView", label: "Tabella"},
+        {link: "/MapView", label: "Mappa"},
     ]
 
     const linksFooter = [
@@ -167,7 +169,7 @@ function MainLayout () {
                         <Group>
                           <LightDarkButton/>
                           {/* Esempio bottone per navigazione con react router e mantine */}
-                          <Button component={Link} to="/login" >Log in</Button> 
+                          <Button component={Link} to="/login" leftIcon={<IconLogin size={20} />} >Log in</Button> 
                         </Group>
                     </Container>
                 </Header>
