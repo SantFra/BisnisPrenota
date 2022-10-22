@@ -1,7 +1,9 @@
+import './AboutUs.css';
 
-
-export default function AboutUs () {
-    return(
-        <h1>About Us </h1>
-    )
+function AboutUs() {
+  return (
+    <div height="900" backgroundColor="black"> prova footer asjkldaksdjklasjdklasjdlkajsdl</div>
+  );
 }
+
+export default AboutUs;

@@ -2,8 +2,8 @@ import { useRoutes } from "react-router-dom";
 import App from "./App";
 import MainLayout from "./Layout/MainLayout";
 import Login from "./Page/Login";
-import AboutUs from "./AboutUs";
-import ContactUs from "./ContactUs";
+import AboutUs from "./Page/AboutUs";
+import ContactUs from "./Page/ContactUs";
 
 export default function Router () {
     return useRoutes([

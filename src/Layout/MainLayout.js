@@ -1,6 +1,8 @@
-import { Button, Anchor, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header } from "@mantine/core";
+import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 import LightDarkButton from "../Components/LightDarkButton";
 
 //css config style page 
@@ -90,6 +92,8 @@ const useStyles = createStyles((theme) => ({
 
 function MainLayout () {
 
+    const navigate = useNavigate();
+
     //--- lista dei link 
     const linksHeader = [
         {link: "/", label: "Home"},
@@ -160,19 +164,24 @@ function MainLayout () {
                         
                         {/* Logo  */}
                         
-                        <LightDarkButton/>
-                        <Button tyoe="submit">Log in</Button>
+                        <Group>
+                          <LightDarkButton/>
+                          {/* Esempio bottone per navigazione con react router e mantine */}
+                          <Button component={Link} to="/login" >Log in</Button> 
+                        </Group>
                     </Container>
                 </Header>
 
-                <div className={classes.footer}>
+                <Outlet/>
+
+                {/* <div className={classes.footer}> */}
+                <Footer>
                   <Container className={classes.inner}>
                     <span>Logo</span>
                     <Group className={classes.links}>{itemsFooter}</Group>
                   </Container>
-                </div>
-
-                <Outlet/>
+                </Footer>
+                {/* </div> */}
                 
             </MantineProvider>
         </ColorSchemeProvider>
