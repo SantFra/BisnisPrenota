@@ -1,4 +1,4 @@
-import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer } from "@mantine/core";
+import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Image  } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
@@ -165,7 +165,7 @@ function MainLayout () {
                         <Group className={classes.linksHeader} spacing={5}>{itemsHeader}</Group>
                         
                         {/* Logo  */}
-                        
+
                         <Group>
                           <LightDarkButton/>
                           {/* Esempio bottone per navigazione con react router e mantine */}
