@@ -114,7 +114,7 @@ function MainLayout () {
     //--- bottone light / dark theme
     const [colorScheme, setColorScheme] = useLocalStorage({
       key: 'mantine-color-scheme',
-      defaultValue: 'light',
+      defaultValue: 'dark',
       getInitialValueInEffect: true,
     });
 
