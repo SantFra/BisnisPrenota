@@ -29,15 +29,15 @@ import { useForm } from "@mantine/form"
                             align="center"
                             sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}
                             >
-                            Welcome back!
+                            Bentornato!
                         </Title>
                         
                             <TextInput
                                 fullWidth
                                 my={30}
                                 required
-                                label="username"
-                                placeholder="name.surname" 
+                                label="Username"
+                                placeholder="username" 
                                 value={form.values.userName}
                                 onChange={(event) => form.setFieldValue("userName", event.currentTarget.value)}
                                 error={form.errors.userName && "Invalid userName"}

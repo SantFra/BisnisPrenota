@@ -1,10 +1,12 @@
-import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Image  } from "@mantine/core";
+import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Image, Avatar  } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { IconLogin } from '@tabler/icons';
+import img from "../logo.png"
 
 import LightDarkButton from "../Components/LightDarkButton";
+import { useLocalStorage } from "@mantine/hooks";
 
 //css config style page 
 const useStyles = createStyles((theme) => ({
@@ -110,7 +112,11 @@ function MainLayout () {
     const { classes, cx } = useStyles();
 
     //--- bottone light / dark theme
-    const [colorScheme, setColorScheme] = useState ('light');
+    const [colorScheme, setColorScheme] = useLocalStorage({
+      key: 'mantine-color-scheme',
+      defaultValue: 'light',
+      getInitialValueInEffect: true,
+    });
 
     const toggleColorScheme = (value) =>
         setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
@@ -164,7 +170,7 @@ function MainLayout () {
                         />
                         <Group className={classes.linksHeader} spacing={5}>{itemsHeader}</Group>
                         
-                        {/* Logo  */}
+                        <Avatar src={img}></Avatar>
 
                         <Group>
                           <LightDarkButton/>
@@ -179,7 +185,7 @@ function MainLayout () {
                 {/* <div className={classes.footer}> */}
                 <Footer>
                   <Container className={classes.inner}>
-                    <span>Logo</span>
+                    <Avatar src={img}></Avatar>
                     <Group className={classes.links}>{itemsFooter}</Group>
                   </Container>
                 </Footer>

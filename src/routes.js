@@ -19,9 +19,9 @@ export default function Router () {
                 {path: 'ContactUs', element: <ContactUs/>},
                 {path: 'GridView', element:<GridView/>},
                 {path: 'MapView', element:<MapView/>},
+                {path: 'login', element:<Login/>},
             ]
 
         },
-        { path: '/login', element: <Login /> },
     ])
 }
