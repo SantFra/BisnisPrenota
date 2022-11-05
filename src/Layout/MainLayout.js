@@ -1,4 +1,4 @@
-import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Image, Avatar  } from "@mantine/core";
+import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Avatar  } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';

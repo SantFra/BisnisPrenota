@@ -1,15 +1,44 @@
-import { Blockquote, Image, Mark, Stack } from "@mantine/core";
-import img from "../logo.png"
+import { Container, Paper, Title, Button, Text } from "@mantine/core";
+import './Home.css';
 
-function Home () {
+
+function Home (props) {
+
     return(
-        <Stack align="center" sx={{padding:50}} >
-            <Image radius="md"  width={500} height={500} src={img} />
-            <Blockquote cite="– Forrest Gump">
-                Prenota la tua classe! <br/>
-                Per una visone di <Mark>CARS</Mark> più sicura 
-            </Blockquote>
-        </Stack>
+        <Container size={720} my={250}>
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+
+            <Paper 
+                radius="md"
+                p="md"
+                withBorder {...props}
+            >
+                <Title align="center">Class Booking ti aiuta a prenotare la classe che vuoi per le tue lezioni</Title>
+                <br/><br/><br/>
+
+                <Text>
+                    Prenota la tua classe 
+                </Text>
+                <p align="center">
+                    <Button size="md">Prenota ora !</Button>
+                </p>
+                
+            </Paper>
+
+
+            
+        </Container>
     )
 }
 export default Home;

@@ -84,7 +84,7 @@ function GridView () {
         <Container>
             <Grid sx={{padding:20}} align="center">
                 <Col span={5}> <DatePicker placeholder="Data" /> </Col>
-                <Col span={5}> <NativeSelect data={['1', '2', '3', '4','5','6','7','8']} placeholder="Pick one"/> </Col>
+                <Col span={5}> <NativeSelect data={['1° ora', '2° ora', '3° ora', '4° ora','5° ora','6° ora','7° ora','8° ora']} placeholder="Pick one"/> </Col>
                 <Col span={2}> <Button variant="light" radius="xl"> Carica </Button> </Col>
             </Grid>
 
