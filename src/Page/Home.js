@@ -13,7 +13,59 @@ function Home (props) {
     const [setActive] = useState(link[0].link);
 
     return(
-        <Container size={720} my={250}>
+        <Container size={720} my={200}>
+                
+            <Title align="justify" paddingTop="100">
+                Prenota ora la tua classe !
+            </Title>
+
+            <Paper
+                shadow="xl"
+                p="md"
+                withBorder
+            >
+                Prenotazione
+                <Text>
+                     Prenota la tua classe qui
+                </Text>
+                <Button>Inizia subito !</Button>
+            </Paper>
+            <br/><br/>
+
+            <Paper
+                shadow="xl" 
+                p="md"
+                withBorder
+            > 
+                Visualizza mappa
+                <Text>
+                    Visualizza la mappa dell'istituto
+                </Text>
+
+                <Button>
+                    Visualizza qui
+                </Button>
+            </Paper>
+            <br/><br/>
+                
+            <Paper
+                shadow="xl" 
+                p="md"
+                withBorder
+            > 
+                Impostazioni account
+
+                <Text>
+                    Gestisci il tuo account
+                </Text>
+
+                <Button>
+                    Impostazioni
+                </Button>
+            </Paper>
+
+
+
                 <ul class="circles">
                     <li></li>
                     <li></li>
@@ -23,32 +75,7 @@ function Home (props) {
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
-                    <li></li>
                 </ul>
-
-            <Paper 
-                radius="md"
-                p="md"
-                withBorder {...props}
-            >
-                <Title align="center">Class Booking ti aiuta a prenotare la classe che vuoi per le tue lezioni</Title>
-                <br/><br/><br/>
-
-                <Text>
-                    Prenota la tua classe 
-                </Text>
-                <p align="center">
-                    <Button
-                        component={Link} 
-                        to="/GridView"
-                        size="md"
-                    >Prenota ora !</Button> 
-                </p>
-                
-            </Paper>
-
-
             
         </Container>
     )
