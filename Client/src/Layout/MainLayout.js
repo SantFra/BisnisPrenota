@@ -1,9 +1,22 @@
 import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Avatar  } from "@mantine/core";
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+// import { Link, Outlet } from "react-router-dom";
+// import { useNavigate } from 'react-router-dom';
 import { IconLogin } from '@tabler/icons';
 import img from "../logo.png"
+
+//********************* PAGE ***************** */
+import Home from '../Page/Home'
+import Login from '../Page/Login'
+import GridView from '../Page/GridView'
+import Contact from '../Page/ContactUs'
+
+import {
+  Outlet,
+  RouterProvider,
+  createReactRouter,
+  createRouteConfig,
+} from '@tanstack/react-router'
 
 import LightDarkButton from "../Components/LightDarkButton";
 import { useLocalStorage } from "@mantine/hooks";
@@ -93,9 +106,39 @@ const useStyles = createStyles((theme) => ({
 
   }));
 
-function MainLayout () {
+  //******************* ROUTING ****************************/
 
-    const navigate = useNavigate();
+const routeConfig = createRouteConfig().createChildren((createRoute) => [
+  createRoute({
+    path: '/',
+    component: () => { return <Home/> },
+  }),
+  createRoute({
+    path: '/Login',
+    component: () => { return <Login/> },
+  }),
+  createRoute({
+    path: '/grid',
+    component: () => { return <GridView/> },
+  }),
+  createRoute({
+    path: '/contact',
+    component: () => { return <Contact/> },
+  }),
+
+])
+
+const router = createReactRouter({ routeConfig })
+
+  function Out () {
+    return(
+      <RouterProvider router={router}>
+        <MainLayout/>
+      </RouterProvider>
+    )
+  }
+
+function MainLayout () {
 
     //--- lista dei link 
     const linksHeader = [
@@ -128,29 +171,31 @@ function MainLayout () {
     
     //--- Crea gli item del menu
     const itemsHeader = linksHeader.map((link) => (
-        <Link
-            key={link.label}
-            to={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-            onClick={() => {
-                setActive(link.link);
-            }}
-        >
-            {link.label}
-        </Link>
+        // <Link
+        //     key={link.label}
+        //     to={link.link}
+        //     className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+        //     onClick={() => {
+        //         setActive(link.link);
+        //     }}
+        // >
+        //     {link.label}
+        // </Link>
+        <></>
       ));
 
       const itemsFooter = linksFooter.map((link) => (
-        <Link
-            key={link.label}
-            to={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-            onClick={() => {
-                setActive(link.link);
-            }}
-        >
-            {link.label}
-        </Link>
+        // <Link
+        //     key={link.label}
+        //     to={link.link}
+        //     className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+        //     onClick={() => {
+        //         setActive(link.link);
+        //     }}
+        // >
+        //     {link.label}
+        // </Link>
+        <></>
       ));
 
 
@@ -168,14 +213,14 @@ function MainLayout () {
                             size="sm"
                             className={classes.burger}
                         />
-                        <Group className={classes.linksHeader} spacing={5}>{itemsHeader}</Group>
+                        <Group className={classes.linksHeader} spacing={5}>{}</Group>
                         
                         <Avatar src={img}></Avatar>
 
                         <Group>
                           <LightDarkButton/>
                           {/* Esempio bottone per navigazione con react router e mantine */}
-                          <Button component={Link} to="/login" leftIcon={<IconLogin size={20} />} >Log in</Button> 
+                          <Button leftIcon={<IconLogin size={20} />} >Log in</Button> 
                         </Group>
                     </Container>
                 </Header>
@@ -196,4 +241,4 @@ function MainLayout () {
     )
 }
 
-export default MainLayout;
+export default Out;
