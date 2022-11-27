@@ -1,7 +1,7 @@
 import { Button, Burger, ColorSchemeProvider, Container, createStyles, Group, MantineProvider, Header, Footer, Avatar  } from "@mantine/core";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { IconLogin } from '@tabler/icons';
 import img from "../logo.png"
 
@@ -95,11 +95,11 @@ const useStyles = createStyles((theme) => ({
 
 function MainLayout () {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     //--- lista dei link 
     const linksHeader = [
-        {link: "/Home", label: "Home"},
+        {link: "/", label: "Home"},
         {link: "/GridView", label: "Tabella"},
         {link: "/MapView", label: "Mappa"},
     ]
@@ -122,16 +122,18 @@ function MainLayout () {
         setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
     //--- Focus bottoni su pagina corrente
+    let URLlocation = useLocation().pathname
+
     const [opened, setOpened] = useState(false);
     const title = opened ? 'Close navigation' : 'Open navigation';
-    const [active, setActive] = useState(linksHeader[0].link || linksFooter[0].link);
+    const [active, setActive] = useState( URLlocation || URLlocation);
     
     //--- Crea gli item del menu
     const itemsHeader = linksHeader.map((link) => (
         <Link
             key={link.label}
             to={link.link}
-            className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+            className={ cx(classes.link, { [classes.linkActive]: active === link.link })}
             onClick={() => {
                 setActive(link.link);
             }}

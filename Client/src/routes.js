@@ -7,6 +7,7 @@ import ContactUs from "./Page/ContactUs";
 import MapView from "./Page/MapView";
 import GridView from "./Page/GridView";
 import Home from "./Page/Home";
+import NotFoundPage from "./Page/404.js"
 
 export default function Router () {
     return useRoutes([
@@ -14,12 +15,13 @@ export default function Router () {
             path:"/",
             element: <MainLayout/>,
             children: [
-                {path: 'Home', element: <Home/> },
+                {path: '/', element: <Home/> },
                 {path: 'AboutUs', element: <AboutUs/> },
                 {path: 'ContactUs', element: <ContactUs/>},
                 {path: 'GridView', element:<GridView/>},
                 {path: 'MapView', element:<MapView/>},
                 {path: 'login', element:<Login/>},
+                {path: '*', element: <NotFoundPage/> }
             ]
         },
     ])
