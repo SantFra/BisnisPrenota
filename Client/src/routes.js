@@ -21,7 +21,6 @@ export default function Router () {
                 {path: 'MapView', element:<MapView/>},
                 {path: 'login', element:<Login/>},
             ]
-
         },
     ])
 }
