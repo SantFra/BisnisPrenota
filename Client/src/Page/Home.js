@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import './Home.css';
 
-
 function Home (props) {
     const link = [
         {link: "/GridView", label: "Prenota ora !"},
@@ -66,7 +65,7 @@ function Home (props) {
 
 
 
-                <ul class="circles">
+                <ul class = 'circles'>
                     <li></li>
                     <li></li>
                     <li></li>
